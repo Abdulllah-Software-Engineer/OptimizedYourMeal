@@ -32,11 +32,11 @@ const Home: FC = () => {
   };
 
   const handleAddToWeek = () => {
-    setIsModalOpen(true); // Open the modal
+    setIsModalOpen(true); 
   };
 
   const closeModal = () => {
-    setIsModalOpen(false); // Close the modal
+    setIsModalOpen(false);
   };
 
   return (
@@ -76,7 +76,6 @@ const Home: FC = () => {
       <WeekSelectionModal
         isOpen={isModalOpen}
         closeModal={closeModal}
-        // selectedMeals={selectedMeals}
       />
     </>
   );

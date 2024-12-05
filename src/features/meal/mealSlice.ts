@@ -37,12 +37,10 @@ const mealSlice = createSlice({
         ...state.selectedItemsWeekFour,
       ];
 
-      // Filter out any meal that's already selected in another week or within the same week
       const newMeals = meals.filter(
         (meal) => !allMeals.some((existingMeal) => existingMeal.id === meal.id)
       );
 
-      // Assign the filtered meals to the appropriate week
       switch (week) {
         case "Week 1":
           state.selectedItemsWeekOne = [
@@ -106,22 +104,9 @@ const mealSlice = createSlice({
           break;
       }
     },
-    // unselectItem: (state, action: PayloadAction<number>) => {
-    //   state.selectedItemsWeekOne = state.selectedItemsWeekOne.filter(
-    //     (item) => item.id !== action.payload
-    //   );
-    // },
-    clearMeals: (state) => {
-      state.selectedMeals = [];
-    },
   },
 });
 
-export const {
-  selectMeal,
-  unselectItem,
-  selectMealWeek,
-  unselectMeal,
-  clearMeals,
-} = mealSlice.actions;
+export const { selectMeal, unselectItem, selectMealWeek, unselectMeal } =
+  mealSlice.actions;
 export default mealSlice.reducer;

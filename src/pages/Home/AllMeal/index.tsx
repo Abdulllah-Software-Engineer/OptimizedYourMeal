@@ -25,7 +25,7 @@ const AllMeal: FC = () => {
     const fetchRecipes = async () => {
       try {
         const response = await axios.get("https://dummyjson.com/recipes");
-        setRecipes(response.data.recipes); // Extract recipes array from API response
+        setRecipes(response.data.recipes);
       } catch (error) {
         console.error("Error fetching recipes:", error);
       }
@@ -33,26 +33,22 @@ const AllMeal: FC = () => {
     fetchRecipes();
   }, []);
 
-  // Calculate the index of the first and last recipe on the current page
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
 
-  // Get the recipes for the current page
   const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
-  // Handle page change
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-  // Calculate total pages
   const totalPages = Math.ceil(recipes.length / recipesPerPage);
 
   const handleSelectMeal = (meal: Recipe) => {
     if (
       selectedMeals.some((selectedMeal: Recipe) => selectedMeal.id === meal.id)
     ) {
-      dispatch(unselectMeal(meal)); // Unselect the meal
+      dispatch(unselectMeal(meal));
     } else {
-      dispatch(selectMeal(meal)); // Select the meal
+      dispatch(selectMeal(meal));
     }
   };
 
@@ -71,7 +67,6 @@ const AllMeal: FC = () => {
                 : ""
             }`}
           >
-            {/* Recipe Image */}
             <div className="relative">
               <img
                 src={recipe.image}
@@ -83,7 +78,6 @@ const AllMeal: FC = () => {
               </span>
             </div>
 
-            {/* Recipe Content */}
             <div className="p-4">
               <h2 className="text-lg font-semibold text-gray-800">
                 {recipe.name}
@@ -108,7 +102,6 @@ const AllMeal: FC = () => {
         ))}
       </div>
 
-      {/* Pagination Controls */}
       <div className="flex justify-center mt-4">
         <button
           onClick={() => paginate(currentPage - 1)}

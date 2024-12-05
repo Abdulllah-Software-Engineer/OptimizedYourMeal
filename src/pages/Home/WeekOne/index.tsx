@@ -41,7 +41,6 @@ const WeekOne: FC = () => {
           >
             <RiDeleteBin6Line />
           </button>
-          {/* Recipe Image */}
           <div className="relative">
             <img
               src={recipe.image}
@@ -53,7 +52,6 @@ const WeekOne: FC = () => {
             </span>
           </div>
 
-          {/* Recipe Content */}
           <div className="p-4">
             <h2 className="text-lg font-semibold text-gray-800">
               {recipe.name}

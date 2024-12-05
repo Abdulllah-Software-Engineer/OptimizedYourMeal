@@ -1,11 +1,9 @@
 import { Suspense, lazy, ComponentType } from "react";
 import { Navigate, useRoutes } from "react-router-dom";
 
-// Layouts
 import LoadingScreen from "../components/LoadingScreen";
 import Layout from "../layout/Layout";
 
-// Lazy-loaded components
 const Loadable = <T extends Record<string, unknown>>(
   Component: ComponentType<T>
 ) => {
@@ -15,7 +13,6 @@ const Loadable = <T extends Record<string, unknown>>(
     </Suspense>
   );
 
-  // Set the displayName of the dynamically created component
   LoadableComponent.displayName = `Loadable(${
     Component.displayName || Component.name
   })`;
@@ -23,7 +20,6 @@ const Loadable = <T extends Record<string, unknown>>(
   return LoadableComponent;
 };
 
-// Lazy load pages
 const Home = Loadable(lazy(() => import("../pages/Home")));
 const Page404 = Loadable(lazy(() => import("../pages/Page404")));
 
