@@ -44,15 +44,15 @@ const Home: FC = () => {
       <div className="container-wrapper py-4">
         <h1 className="font-bold text-2xl">Week Orders</h1>
       </div>
-      <div className="flex items-center  justify-between border-b border-gray-200 bg-white px-40 py-8">
-        <div className="container-wrapper flex space-x-10 text-gray-600">
+      <div className="w-full flex flex-col gap-2 md:flex-row items-center  justify-between border-b border-gray-200 bg-white md:px-40 py-8">
+        <div className="container-wrapper flex-col gap-8 max-md:justify-center md:flex-row flex  text-gray-600">
           {["All Meals", "Week 1", "Week 2", "Week 3", "Week 4"].map((tab) => (
             <button
               key={tab}
               onClick={() => handleTabChange(tab)}
               className={`${
                 activeTab === tab
-                  ? "border-b-2 border-blue-900 text-blue-900"
+                  ? "border-b-2 text-ce border-blue-900 text-blue-900"
                   : "hover:text-blue-900"
               } px-2 pb-1 text-lg font-bold`}
             >
