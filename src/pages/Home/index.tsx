@@ -63,7 +63,7 @@ const Home: FC = () => {
         <button
           disabled={selectedMeals.length === 0}
           onClick={handleAddToWeek}
-          className={`rounded px-3 py-2 text-sm font-bold text-white ${
+          className={`rounded px-3 py-2 text-sm font-bold text-nowrap text-white ${
             selectedMeals.length === 0
               ? "bg-gray-400 cursor-not-allowed opacity-50"
               : "bg-blue-900 hover:bg-blue-800"
